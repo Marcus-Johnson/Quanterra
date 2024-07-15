@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.Quantum.Sdk/0.18.2101128898">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <QsharpLangVersion>latest</QsharpLangVersion>
+    <PackageId>Quanterra</PackageId>
+    <Version>0.0.1</Version>
+    <Authors>MarcusJohnson</Authors>
+    <Company>Nexalis</Company>
+    <Description>Quantum Teleportation Operations Library</Description>
+    <PackageTags>quantum,teleportation,qsharp</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/marcus-johnson/quanterra</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\test\Quanterra.Tests\Quanterra.Tests.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Operations\TeleportOperations.qs" />
+    <Compile Include="Operations\PrepareState.qs" />
+    <Compile Include="Operations\Utility.qs" />
+    <Compile Include="Main.qs" />
+  </ItemGroup>
+
+</Project>
