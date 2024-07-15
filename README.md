@@ -2,6 +2,66 @@
 Providing a comprehensive suite of quantum teleportation operations and utilities, Quanterra is designed for quantum researchers and developers to experiment with various teleportation protocols, error correction mechanisms, and quantum state management techniques. (0.2 Under Development)
 
 ## Why Quanterra?
+Offering a comprehensive range of teleportation operations, from basic to advanced, Quanterra allows users to experiment with various techniques. The library includes robust error correction operations to ensure the integrity of quantum states during teleportation and handles decoherence effectively. Quanterra is flexible, extensible, and easily integrates with other quantum computing frameworks, making it an excellent resource for both educational purposes and research projects.
+```mermaid
+sequenceDiagram
+    participant user as User
+    participant quantumSys as Quantum System
+    participant qubit as Qubit
+    participant teleportOp as Teleportation Operations
+    participant errorCorr as Error Correction
+    participant decoherence as Decoherence Handling
+
+    Note over user,quantumSys: User initiates a quantum teleportation operation
+    user->>+quantumSys: Initialize Quantum System
+    quantumSys->>qubit: Allocate Qubits
+    qubit-->>quantumSys: Qubits Allocated
+
+    alt Standard Quantum Teleportation
+        user->>+teleportOp: StandardQuantumTeleportation(msg, target)
+        teleportOp->>qubit: Prepare Bell Pair
+        teleportOp->>qubit: Perform Bell Measurement
+        teleportOp->>qubit: Apply Corrections
+        teleportOp-->>-user: Teleportation Completed
+    else Quantum Teleportation with Measurement
+        user->>+teleportOp: QuantumTeleportationWithMeasurement(msg, target)
+        teleportOp->>qubit: Prepare Bell Pair
+        teleportOp->>qubit: Perform Bell Measurement
+        teleportOp->>qubit: Apply Corrections
+        teleportOp->>qubit: Measure Qubit
+        teleportOp-->>-user: Measurement Result Returned
+    else Multi-Qubit Quantum Teleportation
+        user->>+teleportOp: MultiQubitQuantumTeleportation(msgs, targets)
+        teleportOp->>qubit: Prepare Multiple Bell Pairs
+        teleportOp->>qubit: Perform Bell Measurements
+        teleportOp->>qubit: Apply Corrections to Multiple Qubits
+        teleportOp-->>-user: Multi-Qubit Teleportation Completed
+    else Controlled Quantum Teleportation
+        user->>+teleportOp: ControlledQuantumTeleportation(ctrl, msg, target)
+        teleportOp->>qubit: Prepare Bell Pair
+        teleportOp->>qubit: Controlled Operations
+        teleportOp->>qubit: Perform Bell Measurement
+        teleportOp->>qubit: Apply Corrections
+        teleportOp-->>-user: Controlled Teleportation Completed
+    end
+
+    par Error Correction
+        user->>+errorCorr: QuantumTeleportationWithErrorCorrection(msg, target)
+        errorCorr->>qubit: Apply Error Correction Techniques
+        errorCorr-->>-user: Error Correction Applied
+    and Decoherence Handling
+        user->>+decoherence: QuantumTeleportationWithDecoherence(msg, target)
+        decoherence->>qubit: Apply Decoherence Management Techniques
+        decoherence-->>-user: Decoherence Managed
+    end
+
+    user->>+quantumSys: Reset Quantum System
+    quantumSys->>qubit: Release Qubits
+    qubit-->>quantumSys: Qubits Released
+    quantumSys-->>-user: Quantum System Reset
+```
+
+## System Framework
 ```mermaid
 C4Context
 title System Context diagram for Quanterra
@@ -86,7 +146,7 @@ mindmap
       Contributing Guide
 ```
 
-## Operations
+## Operations Explanation
 - Standard Quantum Teleportation: Basic teleportation operation.
 - Quantum Teleportation with Measurement: Includes measurement of the teleported qubit.
 - Multi-Qubit Quantum Teleportation: Handles teleportation of multiple qubits simultaneously.
