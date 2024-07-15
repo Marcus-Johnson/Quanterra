@@ -1,4 +1,4 @@
-namespace Quanterra.Operations {
+namespace Quanterra.TeleportOperations {
     open Microsoft.Quantum.Intrinsic;
     open Microsoft.Quantum.Canon;
     open Quanterra.Operations;
