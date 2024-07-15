@@ -1,4 +1,4 @@
-namespace Quanterra.Operations {
+namespace Quanterra.PrepareState {
     open Microsoft.Quantum.Intrinsic;
     open Microsoft.Quantum.Canon;
 
